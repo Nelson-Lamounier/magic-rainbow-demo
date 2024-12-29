@@ -61,14 +61,14 @@ const SisterCompany: React.FC = () => {
 
   return (
     <section
-      className="h-screen bg-gray-800 flex items-center px-40 relative"
+      className="h-screen bg-gray-800 flex flex-col lg:flex-row items-center px-6 lg:px-10 relative"
       id="about-us"
     >
-      <h1 className="text-6xl font-serif font-extralight text-gray-300 mr-4">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extralight text-gray-300 mb-4 lg:mr-4">
         {sisterCompanyData.heading}
       </h1>
-      <div className="w-12 h-[0.2rem] bg-gray-300"></div>
-      <div className="w-[60rem] h-[30rem] absolute top-10 right-10 shadow-[3rem_3rem_6rem_rgba(0,0,0,0.7)] overflow-hidden group">
+      <div className="hidden lg:block w-8 sm:w-10 lg:w-12 h-[0.2rem] bg-gray-300"></div>
+      <div className="w-full lg:w-[60%] h-60 lg:h-[60%] absolute right-10 top-4 lg:top-10 shadow-md lg:shadow-[3rem_3rem_6rem_rgba(0,0,0,0.7)] overflow-hidden group">
         <video
           ref={videoRef}
           src={sisterCompanyData.video.src}
@@ -87,28 +87,30 @@ const SisterCompany: React.FC = () => {
             ></div>
           </div>
 
-          <div className="p-2 pt-4 flex space-x-6">
+          <div className="p-2 pt-4 flex space-x-6 sm:space-x-4">
             <button
               onClick={togglePlayPause}
-              className="bg-none border-none cursor-pointer text-white text-3xl"
+              className="bg-none border-none cursor-pointer text-white text-3xl sm:text-2xl"
             >
               {isPlaying ? <FaPauseCircle /> : <FaPlayCircle />}
             </button>
             <button
               onClick={toggleMute}
-              className="bg-none border-none cursor-pointer text-white text-3xl"
+              className="bg-none border-none cursor-pointer text-2xl sm:text-3xl"
             >
               {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
             </button>
           </div>
         </div>
       </div>
-      <div className="w-[60rem] absolute bottom-4 right-10 font-serif leading-[1.1] font-extrabold text-gray-300 border-t-[0.3rem] border-b-[0.3rem] border-double border-gray-400 p-4 flex flex-col justify-center items-center text-justify ">
-        <p className="text-lg text-gray-300 leading-relaxed mt-8 max-w-3xl mx-auto">
-          <FaQuoteLeft className="inline-block text-gray-500 mr-2" />
+      <div className=" absolute bottom-1 right-10 font-serif leading-[1.1] font-extrabold text-gray-300 p-4 flex flex-col justify-center items-center text-justify ">
+        <p className=" font-serif font-light text-[1.5rem] text-gray-300 leading-relaxed mt-  mx-auto p-8">
           {sisterCompanyData.description}
-          <FaQuoteRight className="inline-block text-gray-500 ml-2" />
         </p>
+          <span className="font-serif font-light text-[1.8rem] ">
+          For more information check{" "}
+          <a className="py-6 mr-4 cursor-pointer hover:text-[#c4083e]" href={sisterCompanyData.linkUrl}>{sisterCompanyData.linkText}</a>
+        </span>
       </div>
     </section>
   );

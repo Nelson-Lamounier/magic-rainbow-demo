@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Josefin_Slab, Mulish } from "next/font/google";
+import Layout from "@/components/layout";
 import "./globals.css";
 
 const josefinSlab = Josefin_Slab({
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${josefinSlab} ${mulish} antialiased`}>{children}</body>
+      <body className={`${josefinSlab} ${mulish} antialiased`}><Layout>{children}</Layout></body>
     </html>
   );
 }

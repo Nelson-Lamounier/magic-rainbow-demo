@@ -6,10 +6,14 @@ import ServiceDescription from "@/components/service.description";
 import GalleriesComponent from "@/components/galleries";
 import OurCustomers from "@/components/our-customer";
 import SisterCompany from "@/components/sister-company";
+import ContactForm from "@/components/contact-form";
+import Footer from "@/components/footer";
+
 
 const home = () => {
   return (
     <>
+
       <HeroSection />
       <Services />
       <AboutUs/>
@@ -18,6 +22,8 @@ const home = () => {
       <GalleriesComponent/>
       <OurCustomers />
       <SisterCompany/>
+      <ContactForm/>
+      <Footer/>
     </>
   );
 };

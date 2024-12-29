@@ -30,15 +30,15 @@ const CarouselItem = ({
   index: number;
   totalItems: number;
 }) => {
-  const x = useMotionValue(0);
+  const x = useMotionValue(2);
   const controls = useAnimationControls();
 
   const pic = (
     <MotionImage
       style={{ x }}
       src={i.imageSrc} // Access the image source from Customer data
-      height={150}
-      width={150}
+      height={50}
+      width={50}
       alt={i.alt || `Customer ${index + 1}`} // Use `alt` if available
       animate={controls}
       className="rounded-lg drop-shadow-lg"
@@ -48,22 +48,22 @@ const CarouselItem = ({
 
 // Set up motion value events and animation
 useMotionValueEvent(x, 'animationComplete', () => {
-  console.log("Current x value on animationComplete:", x.get());
-    controls.set({ x: totalItems - 1 });
+    controls.set({ x: 250});
     controls.start({
-      x: 1000,
+      x: -250,
       transition: {
         ease: 'linear',
         duration: 5,
       },
     });
+    console.log("Current x value on animationComplete:", x.get());
   });
 
   useEffect(() => {
-    controls.set({ x: totalItems - 1 });
+    controls.set({ x: -250 });
     setTimeout(() => {
       controls.start({
-        x: 1000,
+        x: -250,
         transition: {
           ease: "linear",
           duration: 5,
