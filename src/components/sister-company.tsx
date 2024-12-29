@@ -8,9 +8,9 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import { aboutUsData } from "@/data/about-us"; // Updated import to TypeScript module
+import { sisterCompanyData } from "@/data/video-branding";
 
-const AboutUs: React.FC = () => {
+const SisterCompany: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -65,14 +65,14 @@ const AboutUs: React.FC = () => {
       id="about-us"
     >
       <h1 className="text-6xl font-serif font-extralight text-gray-300 mr-4">
-        {aboutUsData.heading}
+        {sisterCompanyData.heading}
       </h1>
       <div className="w-12 h-[0.2rem] bg-gray-300"></div>
       <div className="w-[60rem] h-[30rem] absolute top-10 right-10 shadow-[3rem_3rem_6rem_rgba(0,0,0,0.7)] overflow-hidden group">
         <video
           ref={videoRef}
-          src={aboutUsData.video.src}
-          poster={aboutUsData.video.poster}
+          src={sisterCompanyData.video.src}
+          poster={sisterCompanyData.video.poster}
           className="w-full h-full object-cover opacity-30 hover:opacity-100 transition-opacity duration-300"
           autoPlay
           loop
@@ -106,7 +106,7 @@ const AboutUs: React.FC = () => {
       <div className="w-[60rem] absolute bottom-4 right-10 font-serif leading-[1.1] font-extrabold text-gray-300 border-t-[0.3rem] border-b-[0.3rem] border-double border-gray-400 p-4 flex flex-col justify-center items-center text-justify ">
         <p className="text-lg text-gray-300 leading-relaxed mt-8 max-w-3xl mx-auto">
           <FaQuoteLeft className="inline-block text-gray-500 mr-2" />
-          {aboutUsData.description}
+          {sisterCompanyData.description}
           <FaQuoteRight className="inline-block text-gray-500 ml-2" />
         </p>
       </div>
@@ -114,4 +114,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default SisterCompany;

@@ -1,8 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-  
+  webpack(config, { dev }) {
+    if (dev) {
+      config.devtool = "source-map";
+    }
+    return config;
+  },
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'magic-rainbow-app-01.s3.eu-west-1.amazonaws.com',
+        pathname: '/**', // Matches all paths under this domain
+      },
+    ],
   },
 };
 
