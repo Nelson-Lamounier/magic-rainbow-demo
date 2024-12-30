@@ -2,10 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { gallerySection } from "@/data/galleries";
+import Image from "next/legacy/image";
+import { gallerySection } from "@/types/galleries";
 
 const GalleriesComponent: React.FC = () => {
+  const categories = ["interior", "kitchen", "exterior", "wooden"]; // Add your categories here
   return (
     <div className="py-20 bg-gray-300">
       <div className="flex flex-col items-center mb-10">
@@ -33,10 +34,13 @@ const GalleriesComponent: React.FC = () => {
             {/* Hover Effect - Link */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <Link
-                href={gallery.link}
+                href={`/gallery/${gallery.category}`} passHref // Use the category of the current gallery item
                 className="text-white text-lg font-semibold bg-gray-800 px-6 py-3 rounded-lg hover:bg-gray-700 transition"
               >
-                View {gallery.title}
+                View{" "}
+                {gallery.category.charAt(0).toUpperCase() +
+                  gallery.category.slice(1)}{" "}
+                {/* Capitalize the category */}
               </Link>
             </div>
           </div>

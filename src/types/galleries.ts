@@ -2,7 +2,7 @@ export interface Gallery {
     id: string;
     title: string;
     imageSrc: string;
-    link: string;
+    category: string;
   }
 
   export interface GallerySection {
@@ -17,25 +17,25 @@ export interface Gallery {
         id: "interior",
         title: "Interior",
         imageSrc: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/hero-galeries-imgs/interio-thum.jpg",
-        link: "/gallery/interior",
+        category: "interior",
       },
       {
         id: "exterior",
         title: "Exterior",
         imageSrc: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/hero-galeries-imgs/exterior-thum.jpg",
-        link: "/gallery/exterior",
+        category: "exterior",
       },
       {
         id: "kitchen",
         title: "Kitchen",
         imageSrc: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/hero-galeries-imgs/kitchen-thum.jpg",
-        link: "/gallery/kitchen",
+        category: "kitchen",
       },
       {
         id: "wooden",
         title: "Wooden",
         imageSrc: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/hero-galeries-imgs/wood-thum.jpg",
-        link: "/gallery/wooden",
+        category: "wooden",
       },
     ],
   };

@@ -8,7 +8,7 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import { sisterCompanyData } from "@/data/video-branding";
+import { sisterCompanyData } from "@/types/video-branding";
 
 const SisterCompany: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);

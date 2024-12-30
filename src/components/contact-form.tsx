@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { contactFormConfig } from "@/data/contact-form";
+import { contactFormConfig } from "@/types/contact-form";
 
 interface FormData {
   name: string;

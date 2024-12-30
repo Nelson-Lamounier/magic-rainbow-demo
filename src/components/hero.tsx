@@ -1,13 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { heroData, HeroImage} from "@/data/hero"; // Import the updated TypeScript file
-
+import Image from "next/legacy/image";
+import { heroData } from "@/types/hero"; // Import the updated TypeScript file
 
 const HeroSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  const { heroImages, logo, heading, businessName, description, ctaText, ctaLink } = heroData;
+  const {
+    heroImages,
+    logo,
+    heading,
+    businessName,
+    description,
+    ctaText,
+    ctaLink,
+  } = heroData;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -20,9 +27,9 @@ const HeroSection: React.FC = () => {
   }, [heroImages.length]);
 
   return (
-    <header className="w-full h-screen overflow-hidden relative perspective-[100rem] bg-black/80">
+    <header className="w-full h-screen overflow-hidden relative bg-black/80 perspective-[100rem]">
       {/* Hero Image Slider */}
-      <div className="relative slider w-full h-full">
+      <div className="relative w-full h-full">
         {heroImages.map((image, index) => (
           <div
             key={index}
@@ -32,44 +39,128 @@ const HeroSection: React.FC = () => {
           >
             {/* Overlay */}
             <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
-            {/* Image */}
+
+            {/* Image (full coverage) */}
             <Image
               src={image.url}
               alt={`Hero Image ${index + 1}`}
-              layout="fill" // Use layout "fill" for full coverage
+              layout="fill"
               objectFit="cover"
-              priority={index === 0} // Preload the first image for faster load
+              priority={index === 0} // Preload the first image
             />
           </div>
         ))}
       </div>
 
       {/* Logo */}
-      <div className="absolute top-20 left-20 z-30">
+      <div className="absolute top-8 left-8 sm:top-10 sm:left-10 lg:top-20 lg:left-20 z-30">
         <Image
           src={logo}
           alt="Business Logo"
           className="rounded-lg"
-          width={200}
-          height={200}
-          priority // Preload the logo
+          width={150}
+          height={150}
+          priority
         />
       </div>
 
       {/* Hero Text */}
-      <div className="absolute top-[35%] left-[5%] w-[70%] z-20">
-        <h1 className="font-serif text-[6rem] leading-[6rem] text-[#e9e9e9] font-extrabold uppercase mb-8 tracking-[0.5rem] md:text-[4rem] md:leading-[3rem] sm:text-[2rem] sm:leading-[3rem]">
-          {heading}{" "}
-          <span className="font-serif text-3xl text-[#e9e9e9] font-light mb-8 mr-4">
-            {businessName}
-          </span>
+      <div
+        className="
+          font-sans
+          absolute
+          top-[30%]
+          left-[5%]
+          w-[90%]
+          sm:w-[70%]
+          md:w-[60%]
+          lg:w-[50%]
+          xl:w-[50%]
+          z-20
+        "
+      >
+        <h1
+          className="
+            text-[1.8rem]
+            sm:text-[2rem]
+            lg:text-[3rem]
+            xl:text-[2.5rem]
+            font-thin
+            text-[#e9e9e9]
+            font-extrabold
+            uppercase
+            tracking-[0.3rem]
+            sm:tracking-[0.5rem]
+            mb-4
+          "
+        >
+          {heading}
         </h1>
-        <p className="font-serif text-[1.5rem] text-[#e9e9e9] font-normal mb-20 tracking-[0.1rem] leading-[2.5rem] md:text-[2.5rem] sm:text-[2.5rem] sm:mb-16">
+
+        <span
+          className="
+            block
+            text-[2.2rem]
+            sm:text-[3rem]
+            lg:text-[3.5rem]
+            xl:text-[4.5rem]
+            leading-[2.5rem]
+            sm:leading-[3rem]
+            lg:leading-[4.5rem]
+            text-[#e9e9e9]
+            font-black
+            mb-4
+          "
+        >
+          {businessName}
+        </span>
+
+        <p
+          className="
+            text-[1.4rem]
+            sm:text-[1.6rem]
+            md:text-[2rem]
+            xl:text-[2rem]
+            text-[#e9e9e9]
+            font-normal
+            tracking-[0.2rem]
+            sm:tracking-[0.3rem]
+            leading-[1.5rem]
+            sm:leading-[2.5rem]
+            md:leading-[2.5rem]
+            xl:leading-[2rem]
+            mb-20
+            sm:mb-15
+            md:mb-10
+          "
+        >
           {description}
         </p>
+
         <a
           href={ctaLink}
-          className="font-serif text-2xl text-[#e9e9e9] font-bold uppercase no-underline border-[0.05rem] border-[#e9e9e9] px-8 py-4 transition-all duration-300 cursor-pointer tracking-[0.2rem] hover:bg-gray-500 hover:text-[#e9e9e9] hover:border-transparent md:w-[10rem] md:h-[5rem] md:text-[1rem] sm:w-[5rem] sm:h-[4rem] sm:text-[0.5rem]"
+          className="
+            inline-block
+            text-[1.2rem]
+            sm:text-[1.2rem]
+            md:text-[1.4rem]
+            text-[#e9e9e9]
+            font-bold
+            uppercase
+            tracking-[0.15rem]
+            sm:tracking-[0.2rem]
+            no-underline
+            border border-[#e9e9e9]
+            px-6
+            py-2
+            sm:px-4
+            sm:py-2
+            transition-all
+            duration-300
+            cursor-pointer
+            hover:bg-gray-800
+            hover:border-transparent
+          "
         >
           {ctaText}
         </a>

@@ -8,12 +8,13 @@ import OurCustomers from "@/components/our-customer";
 import SisterCompany from "@/components/sister-company";
 import ContactForm from "@/components/contact-form";
 import Footer from "@/components/footer";
+import ContactBar from "@/components/contact-stickbar";
 
 
 const home = () => {
   return (
     <>
-
+      <ContactBar />
       <HeroSection />
       <Services />
       <AboutUs/>

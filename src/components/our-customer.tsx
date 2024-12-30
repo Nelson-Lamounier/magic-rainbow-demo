@@ -1,102 +1,48 @@
 "use client";
 
-import React, { useEffect, forwardRef } from "react";
-import Image, { ImageProps } from "next/image";
-import {
-  motion,
-  useAnimationControls,
-  useMotionValue,
-  useMotionValueEvent,
-} from "framer-motion";
-import { customers, Customer } from "@/data/our-customer"; // Import your data
+import React from "react";
+import { motion, useMotionValue } from "framer-motion";
+import { customers } from "@/types/our-customer"; // Import your data
 
-// Create a motion-compatible Image component
-const ExoticImage = forwardRef<HTMLImageElement, ImageProps>(
-  function ExoticImageWrapper(props, ref) {
-    return <Image width={150} height={150} layout="responsive" {...props} ref={ref} />;
-  }
-);
-
-// Update this line
-const MotionImage = motion.create(ExoticImage);
-
-// Carousel Item Component
-const CarouselItem = ({
-  i,
-  index,
-  totalItems,
-}: {
-  i: Customer;
-  index: number;
-  totalItems: number;
-}) => {
-  const x = useMotionValue(2);
-  const controls = useAnimationControls();
-
-  const pic = (
-    <MotionImage
-      style={{ x }}
-      src={i.imageSrc} // Access the image source from Customer data
-      height={50}
-      width={50}
-      alt={i.alt || `Customer ${index + 1}`} // Use `alt` if available
-      animate={controls}
-      className="rounded-lg drop-shadow-lg"
-    />
-  );
-
-
-// Set up motion value events and animation
-useMotionValueEvent(x, 'animationComplete', () => {
-    controls.set({ x: 250});
-    controls.start({
-      x: -250,
-      transition: {
-        ease: 'linear',
-        duration: 5,
-      },
-    });
-    console.log("Current x value on animationComplete:", x.get());
-  });
-
-  useEffect(() => {
-    controls.set({ x: -250 });
-    setTimeout(() => {
-      controls.start({
-        x: -250,
-        transition: {
-          ease: "linear",
-          duration: 5,
-        },
-      });
-    }, index * 1000);
-  }, [controls, index, totalItems]);
-
-  return pic;
-};
-
-// Carousel Component
 const OurCustomers: React.FC = () => {
-  const totalItems = customers.length;
+  const x = useMotionValue(-100); // Controls the x-position of the carousel
+  const width = customers.length * 100; // Adjust width based on number of items
+
   return (
-    <section className="bg-gray-100 py-20 overflow-hidden">
-      {/* Section Header */}
-      <div className="text-center mb-10">
-        <h1 className="font-serif text-5xl font-light text-gray-800 mb-5">Our Customers</h1>
-        <div className="w-24 h-1 bg-gray-800 mx-auto mt-4"></div>
-      </div>
-      <div className="relative flex overflow-hidden">
-        {customers.map((i, index) => (
-          <CarouselItem
-            i={i}
-            index={index}
-            key={index}
-            totalItems={totalItems}
-          />
+    <div
+      className="overflow-hidden relative h-48 w-full "
+
+    >
+      <motion.div
+        className="flex absolute"
+        style={{ x }}
+        animate={{
+          x: [0, -width], // Move from the start to the end of the items
+        }}
+        transition={{
+          ease: "linear", // Smooth linear movement
+          duration: customers.length * 3, // Adjust speed based on item count
+          repeat: Infinity, // Infinite loop
+        }}
+      >
+        {[...customers, ...customers].map((customer, index) => (
+          // Duplicate the items for a seamless loop
+          <div
+            key={`${customer.id}-${index}`} // Ensure unique keys for duplicates
+            className="flex-shrink-0 w-48 h-48 m-2 bg-gray-200 rounded-lg"
+          >
+            <img
+              src={customer.imageSrc}
+              alt={customer.alt || `Carousel Item ${index + 1}`}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 };
 
 export default OurCustomers;
+
+

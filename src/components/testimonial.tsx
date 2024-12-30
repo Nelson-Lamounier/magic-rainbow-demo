@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { testimonialsData, Testimonial as TestimonialType } from "@/data/testimonials";
-import Image from "next/image";
+import { testimonialsData, Testimonial as TestimonialType } from "@/types/testimonials";
+import Image from "next/legacy/image";
 
 const Testimonial: FC = () => {
   const { videoSrc, testimonials } = testimonialsData;

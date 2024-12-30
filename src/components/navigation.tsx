@@ -9,7 +9,7 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-import { navigationConfig, NavigationConfig, NavLink, SocialLink  } from "@/data/navigation";
+import { navigationConfig, NavigationConfig, NavLink, SocialLink  } from "@/types/navigation";
 
 
 const iconMap = {
@@ -32,7 +32,7 @@ const Navigation: React.FC = () => {
   const isImageGalleryPage = pathname.startsWith("/gallery");
 
   return (
-    <div className="relative z-50  ">
+    <div className="relative z-50 ">
       {!isImageGalleryPage && (
         <button
           className="fixed top-4 left-4 z-40 text-2xl bg-gray-800 text-white p-2 rounded"

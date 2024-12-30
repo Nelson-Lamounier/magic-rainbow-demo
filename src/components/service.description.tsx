@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
 import { motion } from "framer-motion";
-import { servicesData, Service } from "@/data/services-description";
+import { servicesData, Service } from "@/types/services-description";
 import { FaBrush, FaCloudSun, FaHandSparkles, FaScroll } from "react-icons/fa";
 
 const iconMap = {
