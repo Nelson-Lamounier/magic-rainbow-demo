@@ -1,8 +1,15 @@
 "use client";
 
-import React from "react";
-import { contactItems, socialMediaLinks } from "@/types/contact-data";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { contactItems, socialMediaLinks } from "@/data/contact-data";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const iconMap = {
   FaPhone: FaPhone,
@@ -14,40 +21,63 @@ const iconMap = {
 };
 
 const ContactBar: React.FC = () => {
-  return (
-    <div className="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white py-4 px-6">
-      {/* Contact Info */}
-      <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
-        {contactItems.map((item, index) => {
-          const IconComponent = iconMap[item.icon as keyof typeof iconMap];
-          return (
-            <div key={index} className="flex items-center space-x-2">
-              <IconComponent className="text-xl" />
-              <span>{item.text}</span>
-            </div>
-          );
-        })}
-      </div>
+    const [isScrolled, setIsScrolled] = useState(false);
 
-      {/* Social Media Links */}
-      <div className="flex space-x-4 mt-4 md:mt-0">
-        {socialMediaLinks.map((link, index) => {
-          const IconComponent = iconMap[link.icon as keyof typeof iconMap];
-          return (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-blue-500 transition-colors"
-            >
-              <IconComponent />
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
+  
+    useEffect(() => {
+      const onScroll = () => {
+        if (window.scrollY === 0) {
+          setIsScrolled(false);
+        } else if (window.scrollY > 399) {
+          setIsScrolled(true);
+        }
+      };
+  
+      window.addEventListener("scroll", onScroll);
+      return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+  
+    return (
+<div
+  className={`${
+    isScrolled ? "bg-gray-800" : "bg-transparent"
+  } flex justify-between items-center text-gray-300 font-sans font-light fixed top-0 w-full z-40 text-[1.5rem] py-7 px-[10rem] sm:py-6 sm:px-10 lg:py-6 lg:px-[3.5rem]   transition-colors duration-300`}
+>
+  {/* Contact Info */}
+  <div className="hidden lg:flex flex-col md:flex-row items-center space-y-2 md:space-y-0 lg:space-x-16">
+    {contactItems.map((item, index) => {
+      const IconComponent = iconMap[item.icon as keyof typeof iconMap];
+      return (
+        <div
+          key={index}
+          className="flex items-center space-x-3 lg:space-x-4 text-sm lg:text-base"
+        >
+          <IconComponent className="text-lg lg:text-xl" />
+          <span>{item.text}</span>
+        </div>
+      );
+    })}
+  </div>
 
-export default ContactBar;
+  {/* Social Media Links */}
+  <div className="flex justify-center sm:ml-[25rem] md:ml-[34rem] lg:ml-[5rem] space-x-6  mt-4 ">
+    {socialMediaLinks.map((link, index) => {
+      const IconComponent = iconMap[link.icon as keyof typeof iconMap];
+      return (
+        <a
+          key={index}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[1.5rem] px-2 hover:text-gray-700 transition-all duration-300 ease-in-out"
+        >
+          <IconComponent />
+        </a>
+      );
+    })}
+  </div>
+</div>
+    );
+  };
+  
+  export default ContactBar;

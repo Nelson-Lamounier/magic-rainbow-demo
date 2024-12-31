@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     if (dev) {
       config.devtool = "source-map";
     }
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-intersection-observer': 'react-intersection-observer/dist/index.mjs',
+    };
     return config;
   },
   reactStrictMode: true,

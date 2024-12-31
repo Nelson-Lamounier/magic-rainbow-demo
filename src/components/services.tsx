@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { FaClock, FaMedal, FaBrush } from "react-icons/fa";
-import { services, Service } from "@/types/services"; // Import the services data and type
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { services, Service } from "@/data/services"; // Import the services data and type
+import WithAnimation from "@/util/animation"; // Import WithAnimation HOC
 
 // Map icons to their respective components
 const iconMap = {
@@ -12,57 +11,18 @@ const iconMap = {
   FaBrush: FaBrush,
 };
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      // You can control the child motion elements with staggerChildren
-      // if you want each service item to appear in sequence
-      staggerChildren: 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
 const Services: React.FC = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
-  // Whenever inView becomes true or false, we update the animation controls
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [inView, controls]);
-
   return (
     <section
-      ref={ref}
       className="
         bg-gray-300
         py-10
         sm:py-16
         md:py-20
         relative
-        
       "
     >
-      {/* Motion container to apply the parent variants */}
-      <motion.div
+      <div
         className="
           flex
           justify-center
@@ -73,11 +33,8 @@ const Services: React.FC = () => {
           xl:px-32
           2xl:px-60
         "
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
       >
-        <motion.div
+        <div
           className="
             icon-wrapper
             grid
@@ -88,17 +45,15 @@ const Services: React.FC = () => {
             text-[#373737]
             w-full
             max-w-[1920px]  
-            
           "
         >
           {services.map((service: Service) => {
             // Dynamically resolve the icon component
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
-              // Each child can have its own variants
-              <motion.div
+              // Wrap individual service items with WithAnimation
+              <WithAnimation
                 key={service.id}
-                variants={itemVariants}
                 className="flex flex-col items-center text-center"
               >
                 {Icon ? (
@@ -165,11 +120,11 @@ const Services: React.FC = () => {
                 >
                   {service.description}
                 </p>
-              </motion.div>
+              </WithAnimation>
             );
           })}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -9,9 +9,12 @@ export interface ContactItem {
     url: string;
     icon: string;
   }
+
+
+
   
   export const contactItems: ContactItem[] = [
-    { icon: "FaPhone", text: "(+353) 087 746 9056" },
+    { icon: "FaPhone", text: "087 746 9056" },
     { icon: "FaEnvelope", text: "tarlowskimaciej@gmail.com" },
     { icon: "FaMapMarkerAlt", text: "Dublin - Ireland" },
   ];

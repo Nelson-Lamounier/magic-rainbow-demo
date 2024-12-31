@@ -1,5 +1,5 @@
 import React from "react";
-import { footerConfig } from "@/types/footer";
+import { footerConfig } from "@/data/footer";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const iconMap = {

@@ -3,7 +3,7 @@
 import React from "react";
 
 import { motion } from "framer-motion";
-import { images } from "@/types/images"; 
+import { images } from "@/data/images"; 
 
 interface ImageGalleryProps {
     category: string; // Define the category prop

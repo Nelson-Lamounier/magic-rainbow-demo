@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/legacy/image";
-import { heroData } from "@/types/hero"; // Import the updated TypeScript file
+import { heroData } from "@/data/hero"; // Import the updated TypeScript file
 
 const HeroSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);

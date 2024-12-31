@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { contactFormConfig } from "@/types/contact-form";
+import { contactFormConfig } from "@/data/contact-form";
 
 interface FormData {
   name: string;
@@ -134,15 +134,15 @@ const ContactForm: React.FC = () => {
       id="section_contact"
       className="w-full h-screen bg-gray-300 flex justify-center items-center"
     >
-      <div className="w-[80%] h-[80%] flex bg-white shadow-[0_3rem_7rem_rgba(0,0,0,0.5)]">
+      <div className="w-[80%]  h-[80%] flex bg-white shadow-[0_3rem_7rem_rgba(0,0,0,0.5)]">
         <div
-          className="w-[35%] bg-cover bg-center bg-no-repeat"
+          className="w-[35%] bg-cover bg-center bg-no-repeat below-md:hidden"
           style={{
             backgroundImage: `linear-gradient(rgba(15, 15, 15, 0.6), rgba(22, 22, 22, 0.9)), url(${contactFormConfig.imageUrl})`,
           }}
         ></div>
-        <div className="w-[65%] bg-[#e9e9e9] p-12 pt-12 pb-40">
-          <h1 className="font-sans text-[4rem] font-extralight text-[#262626] mb-20 text-center">
+        <div className="w-[65%] bg-[#e9e9e9] p-12 pt-12 pb-40 below-md:w-[100%] ">
+          <h1 className="font-sans text-[4rem] below-md:text-[2.5rem] font-extralight text-[#262626] mb-20 text-center">
             {contactFormConfig.heading}
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -151,7 +151,7 @@ const ContactForm: React.FC = () => {
                 {field.type === "textarea" ? (
                   <textarea
                     name={key}
-                    className=" bg-transparent border-b-2 border-dashed border-[#636363] px-0 py-4 text-[1.6rem] text-[#4b4b4b] font-serif outline-none transition-colors duration-300 ease-in-out focus:border-blue-500"
+                    className=" bg-transparent border-b-2 border-dashed border-gray-700 px-0 py-4 text-[1.6rem] text-[#4b4b4b] font-serif outline-none transition-colors duration-300 ease-in-out focus:border-gray-700"
                     value={formData[key as keyof FormData]}
                     placeholder={field.placeholder}
                     onChange={handleChange}
@@ -162,7 +162,7 @@ const ContactForm: React.FC = () => {
                   <input
                     type={field.type}
                     name={key}
-                    className=" bg-transparent border-b-2 border-dashed border-[#636363]  px-0  text-[1.6rem] text-[#4b4b4b] font-serif outline-none transition-colors duration-300 ease-in-out focus:border-blue-500"
+                    className=" bg-transparent border-b-2 border-dashed border-gray-700  px-0  text-[1.6rem] text-[#4b4b4b] font-serif outline-none transition-colors duration-300 ease-in-out focus:border-gray-700"
                     value={formData[key as keyof FormData]}
                     placeholder={field.placeholder}
                     onChange={handleChange}
@@ -177,11 +177,11 @@ const ContactForm: React.FC = () => {
                 )}
               </div>
             ))}
-            <div className="flex justify-center items-center">
+            <div className="relative h-full">
 
             <button
               type="submit"
-              className="w-[40rem] h-[3rem] bg-[#262626] text-white font-serif text-[1.5rem] tracking-[1.5rem] uppercase border-none cursor-pointer transition-colors duration-300 hover:bg-[#4b4b4b]"
+              className="w-[100%] h-[4rem] bg-gray-800 text-white font-serif text-[1.5rem] tracking-[1.5rem] uppercase border-none cursor-pointer transition-colors duration-300 hover:bg-gray-700"
             >
               {contactFormConfig.submitButtonText}
             </button>

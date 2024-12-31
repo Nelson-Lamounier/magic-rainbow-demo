@@ -8,7 +8,7 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import { aboutUsData } from "@/types/about-us"; // Updated import to TypeScript module
+import { aboutUsData } from "@/data/about-us"; // Updated import to TypeScript module
 
 const AboutUs: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -61,14 +61,14 @@ const AboutUs: React.FC = () => {
 
   return (
     <section
-      className="h-screen bg-gray-800 flex items-center px-20 relative max-[1400px]:flex-col max-[1400px]:h-[120vh]"
+      className="h-screen bg-gray-800 flex items-center px-20 relative below-lg:flex-col "
       id="about-us"
     >
-      <h1 className="text-[3rem] font-sans font-light uppercase text-gray-300 mr-4 max-[1400px]:mt-10 ">
+      <h1 className="lg:text-[3rem] sm:text-[2.5rem] font-serif font-normal uppercase text-gray-300 mr-4 below-lg:mt-10 ">
         {aboutUsData.heading}
       </h1>
-      <div className="w-12 h-[0.2rem] bg-gray-300"></div>
-      <div className="w-[70%] h-[60%] absolute top-10 right-10 shadow-[3rem_3rem_6rem_rgba(0,0,0,0.7)] overflow-hidden group max-[1400px]:top-[10rem] max-[1400px]:w-[90%]">
+      <div className="w-12 h-[0.1rem] bg-gray-300 exact-1280:hidden"></div>
+      <div className="w-[70%] lg:h-[60%] below-lg:w-[90%]  below-lg:h-[50%] absolute top-10 right-10 shadow-[3rem_3rem_6rem_rgba(0,0,0,0.7)] overflow-hidden group below-lg:top-[10rem] below-lg:w-[90%]">
         <video
           ref={videoRef}
           src={aboutUsData.video.src}
@@ -103,8 +103,8 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className=" max-[900px]:border-none max-[1400px]:w-[90%] w-[70%] absolute bottom-10 right-10 font-sans leading-[1.1] font-extralight text-gray-300 border-t-[0.3rem] border-b-[0.3rem] border-double border-gray-400 flex flex-col justify-center items-center text-justify ">
-        <p className="text-[1.5rem] text-gray-300 leading-relaxed mt-1 mb-2 max-w-4xl mx-auto">
+      <div className=" below-md:border-none w-[70%]  below-lg:w-[90%]   absolute bottom-10 right-10 font-sans leading-[1.1] font-extralight text-gray-300 border-t-[0.3rem] border-b-[0.3rem] border-double border-gray-400 flex flex-col justify-center items-center text-justify ">
+        <p className=" text-[1.6rem] below-lg:text-[1.3rem] text-gray-300 leading-relaxed mt-1 mb-2  mx-auto">
           <FaQuoteLeft className="inline-block text-gray-500 mr-2" />
           {aboutUsData.description}
           <FaQuoteRight className="inline-block text-gray-500 ml-2" />
