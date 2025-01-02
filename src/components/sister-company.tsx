@@ -8,7 +8,7 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import { sisterCompanyData } from "@/data/video-branding";
+import { sisterCompanyData } from "@/types/video-branding";
 
 const SisterCompany: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,9 +60,8 @@ const SisterCompany: React.FC = () => {
   }, []);
 
   return (
-    <section
+    <section id="vertical-print"
       className="h-screen bg-gray-800 flex flex-col lg:flex-row items-center px-6 lg:px-10 relative below-xl:flex-col"
-      id="about-us"
     >
       <h1 className="xl:text-[3.2rem] sm:text-[2.5rem] font-serif font-extralight text-gray-300 mb-4 below-xl:mt-10 ">
         {sisterCompanyData.heading}

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { contactItems, socialMediaLinks } from "@/data/contact-data";
+import { contactItems, socialMediaLinks } from "@/types/contact-data";
 import {
-  FaPhone,
+  FaPhoneAlt ,
   FaEnvelope,
   FaMapMarkerAlt,
   FaFacebook,
@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 
 const iconMap = {
-  FaPhone: FaPhone,
+  FaPhone: FaPhoneAlt ,
   FaEnvelope: FaEnvelope,
   FaMapMarkerAlt: FaMapMarkerAlt,
   FaFacebook: FaFacebook,

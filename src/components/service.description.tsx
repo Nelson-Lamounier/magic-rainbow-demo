@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
 import { motion } from "framer-motion";
-import { servicesData, Service } from "@/data/services-description";
+import { servicesData, Service } from "@/types/services-description";
 import { FaBrush, FaCloudSun, FaHandSparkles, FaScroll } from "react-icons/fa";
 
 import WithAnimation from "@/util/animation";
@@ -21,7 +21,7 @@ const ServiceDescription: FC = () => {
   };
 
   return (
-    <div className="py-20  bg-gray-800 ">
+    <section id="services-description" className="py-20  bg-gray-800 ">
       <div className="flex flex-col items-center mb-10">
         <h2 className="font-serif lg:text-[3rem] sm:text-[2.5rem] uppercase font-light text-gray-200 mb-5">
           {servicesData.sectionTitle}
@@ -83,7 +83,7 @@ const ServiceDescription: FC = () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

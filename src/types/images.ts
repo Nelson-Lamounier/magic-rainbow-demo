@@ -5,6 +5,18 @@ export interface ImageData {
     category: string;
   }
 
+  export interface GalleryCategory {
+    category: string;
+    description: string;
+  }
+
+  export const galleryCategories: GalleryCategory[]  = [
+    { category: "wooden", description: "Explore beautiful wooden works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus! " },
+    { category: "interior", description: "Elegant interior designs. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
+    { category: "kitchen", description: "Breathtaking landscapes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
+    { category: "exterior", description: "Breathtaking landscapes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
+  ];
+
 
   export const images: ImageData[] = [
     {

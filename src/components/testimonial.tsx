@@ -6,7 +6,7 @@ import WithAnimation from "@/util/animation";
 import {
   testimonialsData,
   Testimonial as TestimonialType,
-} from "@/data/testimonials";
+} from "@/types/testimonials";
 import Image from "next/legacy/image";
 
 const Testimonial: FC = () => {
@@ -15,7 +15,7 @@ const Testimonial: FC = () => {
 
 
   return (
-    <section className="font-sans py-10 relative bg-gray-100 overflow-hidden">
+    <section id="testimonial" className="font-sans py-10 relative bg-gray-100 overflow-hidden">
       
       {/* Background Video */}
       <div className="absolute top-0 left-0 w-full h-full opacity-40">

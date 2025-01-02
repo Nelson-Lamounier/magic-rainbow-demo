@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/legacy/image";
-import { heroData } from "@/data/hero"; // Import the updated TypeScript file
+import { heroData } from "@/types/hero"; // Import the updated TypeScript file
 
 const HeroSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
   }, [heroImages.length]);
 
   return (
-    <header className="w-full h-screen overflow-hidden relative bg-black/80 perspective-[100rem]">
+    <section id="home" className="w-full h-screen overflow-hidden relative bg-black/80 perspective-[100rem]">
       {/* Hero Image Slider */}
       <div className="relative w-full h-full">
         {heroImages.map((image, index) => (
@@ -165,7 +165,7 @@ const HeroSection: React.FC = () => {
           {ctaText}
         </a>
       </div>
-    </header>
+    </section>
   );
 };
 

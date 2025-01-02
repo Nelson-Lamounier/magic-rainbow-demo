@@ -18,8 +18,8 @@ export interface NavLink {
     links: [
       { label: "Home", href: "#home" },
       { label: "About", href: "#about" },
-      { label: "Testimonials", href: "#testimonials" },
-      { label: "Services", href: "#key-services" },
+      { label: "Testimonials", href: "#testimonial" },
+      { label: "Services", href: "#services-description" },
       { label: "Galleries", href: "#galleries" },
       { label: "Vertical Print", href: "#vertical-print" },
       { label: "Contact", href: "#contact" }

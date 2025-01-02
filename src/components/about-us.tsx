@@ -8,7 +8,7 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import { aboutUsData } from "@/data/about-us"; // Updated import to TypeScript module
+import { aboutUsData } from "@/types/about-us"; // Updated import to TypeScript module
 
 const AboutUs: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,9 +60,8 @@ const AboutUs: React.FC = () => {
   }, []);
 
   return (
-    <section
+    <section id="about"
       className="h-screen bg-gray-800 flex items-center px-20 relative below-lg:flex-col "
-      id="about-us"
     >
       <h1 className="lg:text-[3rem] sm:text-[2.5rem] font-serif font-normal uppercase text-gray-300 mr-4 below-lg:mt-10 ">
         {aboutUsData.heading}

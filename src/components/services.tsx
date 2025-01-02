@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FaClock, FaMedal, FaBrush } from "react-icons/fa";
-import { services, Service } from "@/data/services"; // Import the services data and type
+import { services, Service } from "@/types/services"; // Import the services data and type
 import WithAnimation from "@/util/animation"; // Import WithAnimation HOC
 
 // Map icons to their respective components

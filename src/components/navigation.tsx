@@ -1,16 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
-    FaArrowLeft,
-  FaAlignLeft ,
+  FaArrowLeft,
+  FaAlignLeft,
   FaFacebookF,
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-import { navigationConfig, NavigationConfig, NavLink, SocialLink  } from "@/data/navigation";
-
+import {
+  navigationConfig,
+  NavigationConfig,
+  NavLink,
+  SocialLink,
+} from "@/types/navigation";
 
 const iconMap = {
   FaFacebookF,
@@ -31,6 +35,15 @@ const Navigation: React.FC = () => {
   // Determine if the current route is the ImageGallery
   const isImageGalleryPage = pathname.startsWith("/gallery");
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      document.getElementById(hash.replace("#", ""))?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
   return (
     <div className="relative z-50 ">
       {!isImageGalleryPage && (
@@ -50,18 +63,26 @@ const Navigation: React.FC = () => {
         {!isImageGalleryPage && (
           <ul className="mt-[5rem] space-y-6 px-4 font-serif text-[1.2rem] font-normal tracking-[0.5rem] list-none p-0 uppercase flex flex-col items-center sm:items-start">
             {links.map((link: NavLink) => (
-              <li key={link.href} >
+              <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={toggleSidebar}
-                  className="block py-2 px-4 hover:bg-gray-700 "
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById(link.href.replace("#", ""))
+                      ?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    toggleSidebar();
+                  }}
+                  className="block py-2 px-4 hover:bg-gray-700"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-        )} 
+        )}
         <div className="flex justify-center mt-8 space-x-10 flex justify-center text-center absolute bottom-0 w-full p-8">
           {socialLinks.map((link: SocialLink) => {
             const IconComponent = iconMap[link.icon as keyof typeof iconMap];

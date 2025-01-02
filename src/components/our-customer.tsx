@@ -2,14 +2,14 @@
 
 import React from "react";
 import { motion, useMotionValue } from "framer-motion";
-import { customersData, Customer } from "@/data/our-customer"; // Import your data
+import { customersData, Customer } from "@/types/our-customer"; // Import your data
 
 const OurCustomers: React.FC = () => {
   const x = useMotionValue(-100); // Controls the x-position of the carousel
   const width = customersData.customer.length * 100; // Adjust width based on number of items
 
   return (
-    <section className="py-20 relative bg-[#fff]" id="about-us">
+    <section id="our-customers" className="py-20 relative bg-[#fff]">
       <div className="flex flex-col items-center mb-10">
         <h2 className="font-serif lg:text-[3rem] sm:text-[2.5rem] uppercase font-light text-gray-800 mb-5">
           {customersData.sectionTitle}

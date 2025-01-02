@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { contactFormConfig } from "@/data/contact-form";
+import { contactFormConfig } from "@/types/contact-form";
 
 interface FormData {
   name: string;
@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <section
-      id="section_contact"
+      id="contact"
       className="w-full h-screen bg-gray-300 flex justify-center items-center"
     >
       <div className="w-[80%]  h-[80%] flex bg-white shadow-[0_3rem_7rem_rgba(0,0,0,0.5)]">
