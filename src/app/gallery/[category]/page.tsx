@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import ImageGallery from "@/components/images";
+import ImageGallery from "@/components/gallery/images";
 import { galleryCategories } from "@/types/images";
 import ContactBar from "@/components/contact-stickbar";
 import Footer from "@/components/footer";

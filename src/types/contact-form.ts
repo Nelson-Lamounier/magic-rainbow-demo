@@ -46,5 +46,5 @@ interface FormField {
         placeholder: "Write your message here",
       },
     },
-    submitButtonText: "Submit",
+    submitButtonText: "Send",
   };

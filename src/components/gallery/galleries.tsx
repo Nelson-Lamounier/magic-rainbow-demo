@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/legacy/image";
 import { gallerySection } from "@/types/galleries";
 
+import WithAnimation from "@/util/animation";
+
 interface GalleriesComponentProps {
   excludeCategory?: string; // Current category to exclude
   sectionTitle?: string;
@@ -25,7 +27,7 @@ const GalleriesComponent: FC<GalleriesComponentProps> = ({ excludeCategory, sect
         </h2>
         <div className="w-48 h-[3px] bg-gray-800"></div>
       </div>
-
+      <WithAnimation>
       {/* Galleries Grid */}
       <div className={`grid ${gridColumnsClass} gap-8 px-6 py-12`}>
         {filteredGalleries.map((gallery) => (
@@ -56,6 +58,7 @@ const GalleriesComponent: FC<GalleriesComponentProps> = ({ excludeCategory, sect
           </div>
         ))}
       </div>
+        </WithAnimation>
     </section>
   );
 };

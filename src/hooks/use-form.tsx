@@ -42,13 +42,9 @@ export const useForm = <T extends Record<string, string>>(
   const resetForm = () => {
     setFormData(initialState); // Reset form data to its initial state
     setErrors(
-      Object.keys(initialState).reduce((acc, key) => ({ ...acc, [key]: "" }), {} as Record<keyof T, string>)
-    );
-    setTouched(
-      Object.keys(initialState).reduce((acc, key) => ({ ...acc, [key]: false }), {} as Record<keyof T, boolean>)
+      Object.keys(initialState).reduce((acc, key) => ({ ...acc, [key]: '' }), {} as Record<keyof typeof formData, string>)
     );
   };
-
 
   return {
     formData,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Josefin_Slab, Mulish } from "next/font/google";
-import Layout from "@/components/layout";
+import Layout from "@/components/navigation/layout";
 import "./globals.css";
 
 const josefinSlab = Josefin_Slab({
