@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {FC, useEffect, useState } from "react";
 import { contactItems, socialMediaLinks } from "@/types/contact-data";
 import {
   FaPhoneAlt ,
@@ -11,6 +11,10 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
+interface ContactBarComponentProps {
+  textColorClass?: string;
+}
+
 const iconMap = {
   FaPhone: FaPhoneAlt ,
   FaEnvelope: FaEnvelope,
@@ -20,7 +24,7 @@ const iconMap = {
   FaLinkedin: FaLinkedin,
 };
 
-const ContactBar: React.FC = () => {
+const ContactBar: FC<ContactBarComponentProps> = ({textColorClass= "text-gray-300"}) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
   
@@ -41,7 +45,7 @@ const ContactBar: React.FC = () => {
 <div
   className={`${
     isScrolled ? "bg-gray-800" : "bg-transparent"
-  } flex justify-between items-center text-gray-300 font-sans font-light fixed top-0 w-full z-40 text-[1.5rem] py-7 px-[10rem] sm:py-6 sm:px-10 lg:py-6 lg:px-[3.5rem]   transition-colors duration-300`}
+  } flex justify-between items-center ${textColorClass} font-sans font-light fixed top-0 w-full z-40 text-[1.5rem] py-7 px-[20rem] sm:py-6 sm:px-10 lg:py-6 lg:px-[5rem]   transition-colors duration-300`}
 >
   {/* Contact Info */}
   <div className="hidden lg:flex flex-col md:flex-row items-center space-y-2 md:space-y-0 lg:space-x-16">
@@ -69,7 +73,7 @@ const ContactBar: React.FC = () => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[1.5rem] px-2 hover:text-gray-700 transition-all duration-300 ease-in-out"
+          className={`text-[1.5rem] px-2 hover:text-gray-700 transition-all duration-300 ease-in-out`}
         >
           <IconComponent />
         </a>

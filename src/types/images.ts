@@ -1,3 +1,4 @@
+import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/solid'
 export interface ImageData {
     url: string;
     title: string;
@@ -10,11 +11,23 @@ export interface ImageData {
     description: string;
   }
 
-  export const galleryCategories: GalleryCategory[]  = [
-    { category: "wooden", description: "Explore beautiful wooden works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus! " },
-    { category: "interior", description: "Elegant interior designs. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
-    { category: "kitchen", description: "Breathtaking landscapes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
-    { category: "exterior", description: "Breathtaking landscapes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores assumenda minima sit, reiciendis optio suscipit provident id quam consectetur vitae odit labore architecto corporis dolores praesentium. Itaque, facere voluptatibus!" },
+  export const galleryCategories: GalleryCategory[] = [
+    {
+      category: "wooden",
+      description: "Enhance your wooden surfaces with expert painting and staining services. We bring out the natural beauty of wood while ensuring long-lasting protection and a flawless finish.",
+    },
+    {
+      category: "interior",
+      description: "Transform your interior spaces with professional painting and decorating services. From vibrant feature walls to seamless finishes, we create homes that inspire comfort and style.",
+    },
+    {
+      category: "kitchen",
+      description: "Revitalize your kitchen with custom painting and decorating solutions. Whether it’s modern cabinet refinishing or a fresh coat of paint, we’ll make your kitchen the heart of your home.",
+    },
+    {
+      category: "exterior",
+      description: "Boost your property’s curb appeal with premium exterior painting services. Our weather-resistant coatings and expert craftsmanship protect and beautify your home’s facade.",
+    },
   ];
 
 
