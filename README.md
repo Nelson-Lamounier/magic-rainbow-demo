@@ -51,4 +51,4 @@ This website was developed to promote **Magic Rainbow Painting and Decorating**,
 > ⚠️ **Important**:  
 > This repository is for demonstration purposes only. The content and functionality of this website are proprietary to Magic Rainbow Painting and Decorating. Redistribution or reuse is not permitted without explicit permission.  
 
-This project is included in my portfolio to showcase my front-end development and AWS integration skills. Please contact me if you’d like further details or a walkthrough.
+This project is included in my portfolio to showcase my full stack development and AWS integration skills. Please contact me if you’d like further details or a walkthrough.
