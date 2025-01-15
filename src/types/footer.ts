@@ -10,7 +10,7 @@ export interface SocialLink {
   }
 
   export const footerConfig: FooterConfig = {
-    copyright: "© 2024, Nelson Web Developer - All Rights Reserved",
+    copyright: "© 2024, Magic Rainbow - All Rights Reserved",
     socialLinks: [
       {
         name: "Facebook",
