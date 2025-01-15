@@ -1,14 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  webpack(config, { dev }) {
-    if (dev) {
-      config.devtool = "source-map";
-    }
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react-intersection-observer': 'react-intersection-observer/dist/index.mjs',
-    };
+  webpack: (config) => {
+    config.resolve.mainFields = ['module', 'main'];
     return config;
   },
   reactStrictMode: true,

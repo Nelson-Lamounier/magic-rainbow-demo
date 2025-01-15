@@ -1,4 +1,4 @@
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/solid'
+
 export interface ImageData {
     url: string;
     title: string;

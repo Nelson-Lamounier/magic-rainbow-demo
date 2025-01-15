@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion, useMotionValue } from "framer-motion";
-import { customersData, Customer } from "@/types/our-customer"; // Import your data
+import { customersData } from "@/types/our-customer"; // Import your data
+import Image from "next/image";
 
 const OurCustomers: React.FC = () => {
   const x = useMotionValue(-100); // Controls the x-position of the carousel
@@ -37,7 +38,7 @@ const OurCustomers: React.FC = () => {
                 key={`${customer.id}-${index}`} // Ensure unique keys for duplicates
                 className="flex-shrink-0  h-[10rem] m-2  rounded-lg"
               >
-                <img
+                <Image
                   src={customer.imageSrc}
                   alt={customer.alt || `Carousel Item ${index + 1}`}
                   className="w-full h-full object-cover rounded-lg"

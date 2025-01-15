@@ -153,6 +153,3 @@ const ContactForm: FC = () => {
 
 export default ContactForm;
 
-function resetForm() {
-  throw new Error("Function not implemented.");
-}

@@ -64,3 +64,4 @@ const GalleriesComponent: FC<GalleriesComponentProps> = ({ excludeCategory, sect
 };
 
 export default GalleriesComponent;
+ 

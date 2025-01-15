@@ -2,24 +2,17 @@
 
 import { FC } from "react";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { getCategoryDescription } from "@/util/getCategotyDescription";
 import ImageGallery from "@/components/gallery/images";
-import { galleryCategories } from "@/types/images";
 import ContactBar from "@/components/contact-stickbar";
 import Footer from "@/components/footer";
 import Link from "next/link";
 
-// Utility to get category description
-export const getCategoryDescription = (
-  category: string
-): string | undefined => {
-  return galleryCategories.find((cat) => cat.category === category)
-    ?.description;
-};
+
 
 const GalleryCategory: FC = () => {
   const { category } = useParams(); // Use useParams instead of useRouter
-  const router = useRouter();
+
 
   if (!category || typeof category !== "string") {
     return (

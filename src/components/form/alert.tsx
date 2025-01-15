@@ -8,7 +8,7 @@ interface AlertProps {
 }
 
 
-const Alert: FC<AlertProps> = ({ type, message, onClose }) => {
+const Alert: FC<AlertProps> = ({ type, message }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {

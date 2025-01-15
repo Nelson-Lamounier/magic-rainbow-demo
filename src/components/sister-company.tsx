@@ -3,8 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import {
   FaPlayCircle,
   FaPauseCircle,
-  FaQuoteLeft,
-  FaQuoteRight,
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
