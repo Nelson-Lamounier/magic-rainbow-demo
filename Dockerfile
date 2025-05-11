@@ -1,34 +1,34 @@
-# Stage 1:Build the React app
-
 FROM node:lts-alpine AS build
+
 WORKDIR /app
 
-# Enable Corepack (required for Yarn 4+)
+# Enable and prepare Yarn 4
 RUN corepack enable
 RUN corepack prepare yarn@4.6.0 --activate
 
-# Copy package.json and yarn.lock before installing dependencies
-COPY package.json yarn.lock ./
+# Set registry globally so Next.js SWC can download
+RUN yarn config set npmRegistryServer "https://registry.npmjs.org" --home
 
-# Install dependencies using Yarn 4
+# Copy project files
+COPY package.json yarn.lock .yarnrc.yml ./
+
+# Install dependencies
 RUN yarn install --immutable
 
+# Copy the rest of the app
 COPY . .
 
-# Manually install missing rollup dependencies
-RUN yarn add @rollup/rollup-linux-arm64-musl
-
-# Build the React app
+# Build Next.js app
 RUN yarn build
 
-# Test commit comment
+# Stage 2: Run the app
+FROM node:lts-alpine
+WORKDIR /app
+COPY --from=build /app ./
 
-# Stage 2: Serve the app with Nginx
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+# Enable Corepack and activate Yarn 4 at runtime
+RUN corepack enable
+RUN corepack prepare yarn@4.6.0 --activate
 
-# Add custom Nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+CMD ["yarn", "start"]
