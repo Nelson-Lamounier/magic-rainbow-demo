@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 
 import React from "react";
@@ -10,7 +12,10 @@ const OurCustomers: React.FC = () => {
   const width = customersData.customer.length * 100; // Adjust width based on number of items
 
   return (
-    <section id="our-customers" className="py-20 relative bg-[#fff]">
+    <section
+      id="our-customers"
+      className="py-20 relative bg-[#fff]"
+    >
       <div className="flex flex-col items-center mb-10">
         <h2 className="font-serif lg:text-[3rem] sm:text-[2.5rem] uppercase font-light text-gray-800 mb-5">
           {customersData.sectionTitle}
@@ -40,6 +45,7 @@ const OurCustomers: React.FC = () => {
               >
                 <Image
                   src={customer.imageSrc}
+                  layout="fill"
                   alt={customer.alt || `Carousel Item ${index + 1}`}
                   className="w-full h-full object-cover rounded-lg"
                 />

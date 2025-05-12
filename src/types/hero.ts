@@ -1,3 +1,5 @@
+/** @format */
+
 export interface HeroImage {
   url: string;
 }
@@ -24,9 +26,9 @@ export const heroData: HeroData = {
       url: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/hero-img/image3.jpg",
     },
   ],
-  logo: "https://magic-rainbow-app-01.s3.eu-west-1.amazonaws.com/logo/Logo.png",
+  logo: "https://demo-websites-resources.s3.eu-west-1.amazonaws.com/MagicRainbow+catalog/A_flat-style_vector_illustration_features_a_paint_.png",
   heading: "Welcome to",
-  businessName: "Magic Rainbow Painting & Decorating",
+  businessName: "My Painting & Decorating",
   description:
     "Dublin-based business, specializing in all aspects of interior and exterior painting and decorating.",
   ctaText: "Request a Quote",
