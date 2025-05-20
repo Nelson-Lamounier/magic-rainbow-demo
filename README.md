@@ -1,50 +1,63 @@
-# 🎨 Magic Rainbow Website  
+<!-- @format -->
 
-Welcome to the **Magic Rainbow Painting and Decorating website repository**. This project is a **modern, fully responsive platform** that highlights the company’s services, customer testimonials, and portfolio. It was built using **Next.js and AWS integration**, demonstrating best practices in **full-stack development and cloud deployment**.
+# 🖥️ Full-Stack Marketing Website – Server-Side Rendered (Next.js + AWS)
 
----
-
-## 🔗 Live Website  
-
-🚀 **Live Demo**: [Magic Rainbow Website](https://magic-rainbow-app.netlify.app/) 
+This repository contains a fully responsive, server-rendered marketing website developed using **Next.js**, deployed on **AWS**, and enhanced with **CI/CD pipelines and containerization**. The project demonstrates modern **frontend development**, **form handling via AWS SES**, and **cloud-native deployment** using AWS services.
 
 ---
 
-## 🛠️ Technologies Used  
+## 🔗 Live Demo
 
-| Component       | Technologies                      |
-|----------------|----------------------------------|
-| **Frontend**   | Next.js, React, TailwindCSS      |
-| **Backend**    | AWS SES (Contact Form)           |
-| **Testing**    | Jest, React Testing Library      |
-| **API Requests** | Axios                          |
+🌐 **URL**: [Live Site](https://project1.lamounierdigital.com/)
 
 ---
 
-## 📌 Features  
+## 🧰 Tech Stack
 
-- **🌍 Fully Responsive** – Optimized for desktop, tablet, and mobile.  
-- **📩 Dynamic Contact Form** – Integrated with **AWS SES** for email notifications.  
-- **🔍 SEO Optimized** – Structured content and meta tags for search visibility.  
-- **📂 Services & Testimonials** – Showcases company offerings and customer feedback.  
-- **📌 Smooth Navigation** – Sticky navbar for easy access to sections.  
-
----
-
-## 🚀 Hosting & Deployment  
-
-This website is **hosted and deployed on AWS** for high availability and performance.  
-
-- **Frontend**: Built with **Next.js** for server-side rendering and optimized performance.  
-- **Contact Form**: Uses **AWS SES** for secure email submissions.  
-- **Deployment**: Deployed with **Netlify** for fast, scalable hosting.  
+| Layer              | Technology                                                     |
+| ------------------ | -------------------------------------------------------------- |
+| **Frontend**       | Next.js, React, TailwindCSS                                    |
+| **Email API**      | AWS SES (Simple Email Service)                                 |
+| **Infrastructure** | Docker, AWS CodePipeline, CodeDeploy, CloudFormation, Route 53 |
+| **Testing**        | Jest, React Testing Library                                    |
+| **Deployment**     | AWS ECS (Fargate), ECR, CI/CD                                  |
 
 ---
 
-## ⚠️ Usage Notes  
+## 💡 Features
 
-> 🚀 **This repository is for demonstration purposes only.** It showcases the **code structure and technologies used** for the Magic Rainbow website.  
-> **The content, branding, and functionality are proprietary to Magic Rainbow Painting and Decorating.** Redistribution or reuse is not permitted.  
+- **Responsive Design**: Optimized for desktop, tablet, and mobile using TailwindCSS.
+- **Server-Side Rendering (SSR)**: Built with Next.js for fast page loads and SEO benefits.
+- **Contact Form Integration**: Submissions handled via AWS SES with form validation.
+- **SEO Optimization**: Structured meta tags and semantic layout.
+- **Dockerized App**: Includes Dockerfile for containerized builds and deployments.
 
-This project is part of my portfolio to showcase my **full-stack development and AWS integration skills**. If you'd like further details or a walkthrough, **feel free to reach out!**  
+---
 
+## 🚀 Deployment Architecture
+
+This project is fully deployed on **AWS**, leveraging a cloud-native and automated deployment workflow:
+
+- **Infrastructure as Code**: Provisioned using **AWS CloudFormation** templates.
+- **Containerisation**: Application is containerised with **Docker**, stored in **Amazon ECR**.
+- **Deployment**: Automated using **AWS CodePipeline** and **CodeDeploy**.
+- **DNS Routing**: Managed with **Amazon Route 53** for domain configuration.
+- **CI/CD Pipeline**: Push-to-main triggers build, test, and deploy workflows.
+
+---
+
+## 📁 Project Purpose
+
+This application serves as a **portfolio project** demonstrating:
+
+- Real-world application of **full-stack development principles**
+- Integration of **AWS services for production-grade deployment**
+- Usage of **Docker and CI/CD pipelines** to automate infrastructure
+
+> While the project reflects a real-world use case, all branding and business content has been anonymised for portfolio presentation purposes.
+
+---
+
+## 📄 License & Attribution
+
+This repository is intended for personal learning and technical demonstration only. Do not reuse content or assets for commercial purposes.
