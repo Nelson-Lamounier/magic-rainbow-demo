@@ -24,7 +24,7 @@ This repository contains a fully responsive, server-rendered marketing website d
 
 ---
 
-## 💡 Features
+## 💡 Features 
 
 - **Responsive Design**: Optimized for desktop, tablet, and mobile using TailwindCSS.
 - **Server-Side Rendering (SSR)**: Built with Next.js for fast page loads and SEO benefits.
