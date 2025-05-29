@@ -27,6 +27,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // Add server configuration for dynamic ports
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // Ensure proper port binding
+  output: "standalone",
 };
 
 export default nextConfig;

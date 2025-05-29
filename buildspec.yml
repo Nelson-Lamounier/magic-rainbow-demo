@@ -5,19 +5,21 @@ version: 0.2
 env:
   parameter-store:
     GITHUB_TOKEN: "/github/token"
-    DOCKERHUB_USERNAME: "/dockerhub/username"
-    DOCKERHUB_PASSWORD: "/dockerhub/password"
+    # Remove Docker Hub credentials since we're using ECR
+    # DOCKERHUB_USERNAME: "/dockerhub/username"
+    # DOCKERHUB_PASSWORD: "/dockerhub/password"
 
 phases:
   install:
     commands:
-      - echo Logging in to Docker Hub...
-      - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      # Remove Docker Hub login since we're using ECR
+      # - echo Logging in to Docker Hub...
+      # - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
       - export REPOSITORY_URL=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/project1-dev
       - export IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+
   pre_build:
     commands:
-      - echo $GITHUB_TOKEN
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
@@ -32,7 +34,7 @@ phases:
       - echo Pushing to ECR...
       - docker push $REPOSITORY_URL:$IMAGE_TAG
       - docker push $REPOSITORY_URL:latest
-      - echo Writing imagefinitions.json...
+      - echo Writing imagedefinitions.json...
       - printf '[{"name":"project1-container","imageUri":"%s"}]' $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
